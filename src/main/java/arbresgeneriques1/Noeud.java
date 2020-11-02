@@ -56,7 +56,7 @@ public class Noeud<T extends Sommable<T> & Arbre<T> & Comparable<T>> implements 
         T rtr = fils.get(0).min();
         for (int i = 1; i < fils.size(); i++) {
             T min = fils.get(i).min();
-            if(min.compareTo(rtr) == -1) {
+            if(min.compareTo(rtr) < 0) {
                 rtr = min;
             }
         }
@@ -70,7 +70,7 @@ public class Noeud<T extends Sommable<T> & Arbre<T> & Comparable<T>> implements 
         T rtr = fils.get(0).max();
         for (int i = 1; i < fils.size(); i++) {
             T max = fils.get(i).max();
-            if(max.compareTo(rtr) == 1) {
+            if(max.compareTo(rtr) > 0) {
                 rtr = max;
             }
         }
@@ -97,7 +97,7 @@ public class Noeud<T extends Sommable<T> & Arbre<T> & Comparable<T>> implements 
         for (int i = 0; i < fils.size() - 1; i++) {
             final Arbre<T> fi = fils.get(i);
             final Arbre<T> fj = fils.get(i + 1);
-            if ( fi.max().compareTo(fj.min()) == 1) {
+            if ( fi.max().compareTo(fj.min()) > 0) {
                 rtr = false;
             }
         }
