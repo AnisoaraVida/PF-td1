@@ -79,8 +79,31 @@ public class Noeud<T extends Sommable<T> & Arbre<T> & Comparable<T>> implements 
 
     @Override
     public boolean estTrie() {
-        return false;
+        return conditionTrie1() && conditionTrie2();
     }
+
+    private boolean conditionTrie1() {
+        boolean rtr = true;
+        for (int i = 0; i < fils.size() - 1; i++) {
+            final Arbre fi = fils.get(i);
+            if (!fi.estTrie())
+                return false;
+        }
+        return rtr;
+    }
+
+    private boolean conditionTrie2() {
+        boolean rtr = true;
+        for (int i = 0; i < fils.size() - 1; i++) {
+            final Arbre<T> fi = fils.get(i);
+            final Arbre<T> fj = fils.get(i + 1);
+            if ( fi.max().compareTo(fj.min()) == 1) {
+                rtr = false;
+            }
+        }
+        return rtr;
+    }
+
 
     @Override
     public T sommer(T autre) {

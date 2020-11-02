@@ -99,7 +99,8 @@ public class Noeud implements Arbre{
         for (int i = 0; i < fils.size() - 1; i++) {
             final Arbre fi = fils.get(i);
             if (!fi.estTrie())
-                return false;
+                rtr = false;
+                break;
         }
         return rtr;
     }
@@ -110,7 +111,8 @@ public class Noeud implements Arbre{
             final Arbre fi = fils.get(i);
             final Arbre fj = fils.get(i+1);
             if (fi.max() > fj.min())
-                return false;
+                rtr = false;
+                break;
         }
         return rtr;
     }
