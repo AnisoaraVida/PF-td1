@@ -16,31 +16,35 @@ public class Feuille implements Arbre {
 
     @Override
     public boolean contient(Integer val) {
-        return val.equals(vals);
+        return val.equals(vals); // ou this.vals == val;
     }
 
     @Override
     public Set<Integer> valeurs() {
-        return null;
+        return Set.of(this.vals);
+        // ou Set<Integer> rtr = new HashSet<>();
+        // rtr.add(this.vals);
+        // return rtr;
+
     }
 
     @Override
     public Integer somme() {
-        return null;
+        return this.vals;
     }
 
     @Override
     public Integer min() {
-        return null;
+        return this.vals;
     }
 
     @Override
     public Integer max() {
-        return null;
+        return this.vals;
     }
 
     @Override
     public boolean estTrie() {
-        return false;
+        return true;
     }
 }
