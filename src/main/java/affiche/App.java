@@ -10,6 +10,5 @@ public class App {
         System.out.println(p2);
         Paire<Double, Paire<Integer, String>> p3 = p2.changeSnd(p1);
         System.out.println(p3);
-
     }
 }
